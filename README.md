@@ -75,7 +75,7 @@ spy-debugger -p 8888
 #### 设置外部代理（默认使用AnyProxy）
 >  
 ```
-spy-debugger -e http://127.0.0.1:8888
+spy-debugger -e http://spy_host:8888
 ```
 spy-debugger内置AnyProxy提供抓包功能，但是也可通过设置外部代理和其它抓包代理工具一起使用，如：Charles、Fiddler。
 

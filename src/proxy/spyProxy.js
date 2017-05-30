@@ -81,7 +81,7 @@ module.exports = {
                     if (rOptions.headers.host === config.SPY_WEINRE_DOMAIN) {
 
                         rOptions.protocol = 'http:';
-                        rOptions.hostname = '127.0.0.1';
+                        rOptions.hostname = 'spy_host';
                         rOptions.port = weinrePort;
                         // trick for non-transparent proxy
                         rOptions.path = rPath;
@@ -160,7 +160,7 @@ module.exports = {
                     ports = externalProxyPorts
                     var externalProxyPort = externalProxyPorts.port;
                     var externalProxyWebPort = externalProxyPorts.webPort;
-                    externalProxy = 'http://127.0.0.1:' + externalProxyPort;
+                    externalProxy = 'http://spy_host:' + externalProxyPort;
                     createMitmProxy();
                     successCB(externalProxyPorts);
                 });

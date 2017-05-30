@@ -60,7 +60,7 @@ spy-debugger -p 8888
 
 #### Set up the exterior proxy (default proxy AnyProxy)
 ```
-spy-debugger -e http://127.0.0.1:8888
+spy-debugger -e http://spy_host:8888
 ```
 spy-debugger supply AnyProxy as default proxy, but you can only set up the exterior proxy to instead of the default proxy such as Charles, Fiddler.
 

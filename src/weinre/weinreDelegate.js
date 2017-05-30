@@ -98,11 +98,11 @@ function startWeinreServer (port) {
                                 setTimeout(() => {
                                     var guiPort = guiServer.address().port;
                                     if (process.platform === 'win32' || process.platform === 'win64') {
-                                        child_process.exec(`start http://127.0.0.1:${guiPort}`);
-                                        console.log(colors.green(`浏览器打开 ---> http://127.0.0.1:${guiPort}`));
+                                        child_process.exec(`start http://spy_host:${guiPort}`);
+                                        console.log(colors.green(`浏览器打开 ---> http://spy_host:${guiPort}`));
                                     } else {
-                                        child_process.exec(`open http://127.0.0.1:${guiPort}`);
-                                        console.log(colors.green(`浏览器打开 ---> http://127.0.0.1:${guiPort}`));
+                                        child_process.exec(`open http://spy_host:${guiPort}`);
+                                        console.log(colors.green(`浏览器打开 ---> http://spy_host:${guiPort}`));
                                     }
                                 }, 600)
                             });
@@ -112,8 +112,8 @@ function startWeinreServer (port) {
                             var fp = path.join(__dirname, '../../template/wrap.html');
                             var fileTemp = (fs.readFileSync(fp)).toString();
                             var fileString = _.template(fileTemp)({
-                                weinreUrl: `http://127.0.0.1:${port}/client`,
-                                anyProxyUrl: `http://127.0.0.1:${webPort}`
+                                weinreUrl: `http://spy_host:${port}/client`,
+                                anyProxyUrl: `http://spy_host:${webPort}`
                             });
                             guiServer.on('request', (req, res) => {
                                 res.setHeader('Content-Type', 'text/html;charset=utf-8');
@@ -123,11 +123,11 @@ function startWeinreServer (port) {
                         } else {
                             // auto open debugger page
                             if (process.platform === 'win32' || process.platform === 'win64') {
-                                child_process.exec(`start http://127.0.0.1:${port}/client`);
-                                console.log(colors.green(`浏览器打开 ---> http://127.0.0.1:${port}/client`));
+                                child_process.exec(`start http://spy_host:${port}/client`);
+                                console.log(colors.green(`浏览器打开 ---> http://spy_host:${port}/client`));
                             } else {
-                                child_process.exec(`open http://127.0.0.1:${port}/client`);
-                                console.log(colors.green(`浏览器打开 ---> http://127.0.0.1:${port}/client`));
+                                child_process.exec(`open http://spy_host:${port}/client`);
+                                console.log(colors.green(`浏览器打开 ---> http://spy_host:${port}/client`));
                             }
                         }
                         console.log(colors.green(`本机在当前网络下的IP地址为：${ip.address()}`))
